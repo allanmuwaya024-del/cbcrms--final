@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CBC-RMS | Hope Community High School</title>
+    <meta name="description" content="Competence Based Curriculum Records Management System for Hope Community High School - Jinja District, Uganda. PWA & Offline Learning Capable.">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#6366f1">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom Style System -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <!-- PWA Offline Banner -->
+    <div class="offline-banner" id="offline-banner">
+        <i class="fas fa-wifi-slash"></i> Working in Offline Mode — Changes will sync automatically when online.
+    </div>
+
+    <div id="app-root">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar" id="app-sidebar">
+            <div class="sidebar-header">
+                <div class="brand-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div>
+                    <div class="brand-title">CBC-RMS</div>
+                    <div class="brand-subtitle">Hope Community High</div>
+                </div>
+            </div>
+
+            <div class="sidebar-menu">
+                <div class="menu-label">Role Workspace</div>
+                <div id="sidebar-menu-list">
+                    <!-- Dynamic navigation rendered by app.js -->
+                </div>
+            </div>
+
+            <div class="sidebar-footer">
+                <div class="user-profile-card">
+                    <div class="avatar" id="user-avatar">A</div>
+                    <div class="user-info">
+                        <div class="user-name" id="user-display-name">System Administrator</div>
+                        <div class="user-role" id="user-display-role">ADMIN (admin)</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Workspace -->
+        <div class="main-wrapper">
+            <!-- Header Navbar -->
+            <header class="top-header">
+                <div class="header-left">
+                    <button class="toggle-sidebar-btn" id="toggle-sidebar">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <span class="badge badge-primary"><i class="fas fa-certificate"></i> CBC Uganda Standard</span>
+                </div>
+
+                <div class="header-right">
+                    <!-- Quick Role Switcher Toolbar for Interactive Testing -->
+                    <div class="role-switcher">
+                        <button class="role-btn active" data-role="admin">Admin</button>
+                        <button class="role-btn" data-role="teacher">Teacher</button>
+                        <button class="role-btn" data-role="student">Student</button>
+                    </div>
+
+                    <!-- Theme Toggle Button -->
+                    <button class="icon-btn" id="theme-toggle-btn" title="Toggle Light/Dark Theme">
+                        <i class="fas fa-moon"></i>
+                    </button>
+
+                    <!-- Notifications Indicator -->
+                    <button class="icon-btn" id="notifications-btn" title="System Notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="icon-badge">3</span>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Dynamic Content Area -->
+            <main class="content-container" id="main-content-area">
+                <!-- Modules (Admin / Teacher / Student) rendered dynamically -->
+            </main>
+        </div>
+    </div>
+
+    <!-- Global Modal Dialog Container -->
+    <div class="modal-backdrop" id="global-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title" id="modal-title-text">Modal Title</div>
+                <button class="close-btn" onclick="window.app.closeModal()">&times;</button>
+            </div>
+            <div id="modal-body-container">
+                <!-- Modal content body -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div id="toast-container"></div>
+
+    <!-- Application JavaScript Engine -->
+    <script src="assets/js/db.js"></script>
+    <script src="assets/js/auth.js"></script>
+    <script src="assets/js/parser.js"></script>
+    <script src="assets/js/modules/admin.js"></script>
+    <script src="assets/js/modules/teacher.js"></script>
+    <script src="assets/js/modules/student.js"></script>
+    <script src="assets/js/app.js"></script>
+</body>
+</html>
